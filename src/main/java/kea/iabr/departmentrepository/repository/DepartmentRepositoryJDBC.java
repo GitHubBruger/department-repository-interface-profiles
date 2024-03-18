@@ -8,8 +8,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-public class DepartmentRepositoryJDBC {
+@Repository("DEPARTMENT_REPOSITORY_JDBC")
+public class DepartmentRepositoryJDBC implements IDepartmentRepository{
 
     @Value("${spring.datasource.url}")
     private String db_url;
@@ -18,6 +18,7 @@ public class DepartmentRepositoryJDBC {
     @Value("${spring.datasource.password}")
     private String pwd;
 
+    @Override
     public List<Department> findAll() {
         List<Department> departments = new ArrayList<Department>();
         try (Connection con = DriverManager.getConnection(db_url, username, pwd)) {
