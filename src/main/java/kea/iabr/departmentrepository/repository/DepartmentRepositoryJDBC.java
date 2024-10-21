@@ -2,6 +2,7 @@ package kea.iabr.departmentrepository.repository;
 
 import kea.iabr.departmentrepository.model.Department;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository("DEPARTMENT_REPOSITORY_JDBC")
+@Lazy
 public class DepartmentRepositoryJDBC implements IDepartmentRepository{
 
     @Value("${spring.datasource.url}")
